@@ -3,10 +3,8 @@ const validator = require('validator');
 const bcryptjs = require('bcryptjs');
 
 const LoginSchema = new mongoose.Schema({
-  nome: { type: String, required: true },
   email: { type: String, required: true },
-  password: { type: String, required: true },
-  password2: { type: String, required: true }
+  password: { type: String, required: true }
 });
 
 const LoginModel = mongoose.model('Login', LoginSchema);
@@ -67,10 +65,7 @@ class Login {
     if(this.body.password.length < 3 || this.body.password.length > 50) {
       this.errors.push('A senha precisa ter entre 3 e 50 caracteres.');
     }
-
-    if(!(this.body.password===this.body.password2)) this.errors.push ('A senha não confere');
       
-    
 
     
   }
@@ -83,7 +78,6 @@ class Login {
     }
 
     this.body = {
-      nome:this.body.nome,
       email: this.body.email,
       password: this.body.password
     };
