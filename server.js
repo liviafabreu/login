@@ -43,7 +43,8 @@ app.use(middlewareGlobal);
 app.use(routes);
 
 app.on('pronto', () => {
-  app.listen(3000, () => {
+  var porta = process.env.PORT || 3000;
+  app.listen(porta, () => {
     console.log('Acessar http://localhost:3000');
     console.log('Servidor executando na porta 3000');
   });
