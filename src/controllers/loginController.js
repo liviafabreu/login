@@ -50,7 +50,7 @@ exports.login = async function(req, res) {
       return;
     }
     
-    if (login.user.email==='liviafabreu@gmail.com') {
+    if (login.user.email==='teste@gmail.com') {
       res.render('teste');
     } else {
       res.render('teste2');
