@@ -102,9 +102,19 @@
     
   }
 
-  .form-group:focus-within label,
-  input:valid label
-    
+  .form-group input::placeholder{
+    color: transparent;
+  }
+
+  .form-group input:not(:placeholder-shown) + label{
+    top: -20px;
+    left: 0;
+    color: #6182a0;
+    font-size: 12px;
+
+  }
+
+  .form-group:focus-within label  
 
   {
     top: -20px;
@@ -153,7 +163,7 @@
                           
           <div class="form-group">            
             <label class="form-label">Email</label>
-            <input type="email"  autocomplete="off" placeholder="" name="email" required="" >
+            <input type="email"  autocomplete="off" placeholder="v" name="email" required="" >
           </div>
 
 
@@ -167,6 +177,7 @@
           <button type="submit" class="btn btn-primary">Entrar</button>          
 
         </form>
+
        <p></p>
 
         <p class="link"> <a href="/"> Cadastre-se </a> </p>
