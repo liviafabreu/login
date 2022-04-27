@@ -18,7 +18,7 @@
   body{
     background: linear-gradient(-105deg, #435764, #6182a0 40%, #69758a);
     background-size: 100% 100%;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     align-items:center;
     flex-direction: column;  
@@ -28,18 +28,21 @@
 
     
   }
+
+
+  
   .col-lg{
     background-color: rgba(0,0,0, 0.4);
     color: #fff;
     text-align: center;
-    margin: 20 px 0 30px;
+    margin: 30px 0 px 20px;
     font-family: Arial;
-    width: 600px;
-    padding: 40px;
+    width: 450px;
+    padding: 50px;
     border-radius: 50px 10px 50px 10px;
     box-shadow: 0 20px 20px;
     position: absolute;
-    top: 50%;
+    top: 60%;
     transform: translate(0,-50%);
     justify-content: center;
     
@@ -77,10 +80,10 @@
 
   .col-lg .form-group label{
     position:absolute;
-    top: 0;
+    top: -10px;
     left:0;
     padding-top: 10px 0;
-    font-size: 16px;
+    font-size: 14px;
     color:#fff;
     font-family: arial;
     pointer-events: none;
@@ -115,19 +118,7 @@
   }
 
     
- .form-group:focus-within label,
- .form-group:valid label
  
-
- {
-
-    top: -20px;
-    left: 0;
-    color:#6182a0;
-    font-size: 12px;
-    
-    
-  }
   .col-lg .link a {
 
    color: #fff;
@@ -142,7 +133,7 @@
 
 <body>
 
-    <div class="col-lg-8 my-3">
+    <div class="erros">
       <%- include('includes/messages'); %>
     </div>                   
 
@@ -178,12 +169,7 @@
             <input type="password" name="password" required="">
           </div>
 
-          <div class="form-group">
-            <label >Confirme sua senha</label>
-            <input type="password" name=" password2" required="">
-          </div>
-
-                                
+                                        
          
           <button type="submit" class="btn btn-primary">Cadastrar</button>
           <br>
@@ -193,7 +179,7 @@
      
         </form>
 
-        <div class="link"> Já possui cadastro? Clique <a href='/login/index'>aqui</a> </div>
+        <div class="link"> Já possui cadastro? Clique <a href='/login/index'> aqui </a> </div>
 
       </div>
  
