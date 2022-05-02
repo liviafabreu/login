@@ -1,6 +1,7 @@
 const { render } = require('ejs');
 const Login = require('../models/LoginModel');
-const nodemailer = require("nodemailer");
+const express = require ('express');
+const app = express();
 
 
 exports.index = (req, res) => {
@@ -36,6 +37,9 @@ exports.register = async function(req, res) {
   }
   
 };
+
+
+
 
 exports.login = async function(req, res) {
   try {
