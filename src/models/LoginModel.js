@@ -7,7 +7,7 @@ const LoginSchema = new mongoose.Schema({
 
   nome: { type: String, required: true }, 
   email: { type: String, required: true },
-  password: { type: String, required: true },
+  password: { type: String, required: true } 
 
  
 });
@@ -71,7 +71,7 @@ class Login {
       this.errors.push('A senha precisa ter entre 3 e 50 caracteres.');
     }
 
-       
+    if(this.body.password !== this.body.password2) this.errors.push('Senha não confere');     
      
     
   }
@@ -87,7 +87,8 @@ class Login {
 
       nome:this.body.nome,
       email: this.body.email,
-      password: this.body.password
+      password: this.body.password,
+      password2:this.body.password2
       
      
     };
