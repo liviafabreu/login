@@ -7,6 +7,8 @@ const LoginSchema = new mongoose.Schema({
 
   nome: { type: String, required: true }, 
   email: { type: String, required: true },
+  setor: { type: String, required: true },
+  telefone: { type: String, required: true },
   password: { type: String, required: true } 
 
  
@@ -87,6 +89,8 @@ class Login {
 
       nome:this.body.nome,
       email: this.body.email,
+      setor:this.body.setor,
+      telefone:this.body.telefone,
       password: this.body.password,
       password2:this.body.password2
       
