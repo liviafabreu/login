@@ -2,6 +2,9 @@ const { render } = require('ejs');
 const Login = require('../models/LoginModel');
 const express = require ('express');
 const app = express();
+require('dotenv').config();
+let nodemailer = require ('nodemailer');
+
 
 
 exports.index = (req, res) => {
@@ -31,10 +34,45 @@ exports.register = async function(req, res) {
     req.session.save(function() {
       return res.redirect('back');
     });
+
+    let transporter = nodemailer.createTransport({ 
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+      auth: {
+         user: process.env.NODEMAILERADDRESS, 
+         pass: process.env.NODEMAILERPASSWORD
+       } 
+      });
+    
+      const mailOptions = {
+        from: process.env.NODEMAILERADDRESS, 
+        to: process.env.EMAILUSER, 
+        subject: 'Cadastro', 
+        html: ' <p>Nome: </p>' + login.user.nome + '<p>Setor:</p>' + login.user.setor + '<p>Telefone:</p>' +
+        login.user.telefone + '<p>email:</p>' + login.user.email 
+      };
+    
+      transporter.sendMail(mailOptions, (err, info) => {
+        if(err)
+          console.log(err)
+        else
+          console.log(info);
+     });
+
+
+
+
+
   } catch(e) {
     console.log(e);
     return res.render('404');
   }
+
+
+
+  
+
   
 };
 
@@ -80,4 +118,5 @@ exports.logout = function(req, res) {
   res.render('teste3');
   
 };
+
 
