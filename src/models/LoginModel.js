@@ -24,7 +24,7 @@ class Login {
   }
 
   async login() {
-    this.valida();
+    this.validaLogin();
     if(this.errors.length > 0) return;
     this.user = await LoginModel.findOne({ email: this.body.email });
 
@@ -40,6 +40,8 @@ class Login {
     }
     
   }
+
+
 
   async register() {
     this.valida();
@@ -61,6 +63,23 @@ class Login {
     if(this.user) this.errors.push('Usuário já existe.');
   }
 
+
+
+  validaLogin() {
+    this.cleanUp();
+
+    // Validação
+    // O e-mail precisa ser válido
+    if(!validator.isEmail(this.body.email)) this.errors.push('E-mail inválido');
+
+    // A senha precisa ter entre 3 e 50
+    if(this.body.password.length < 3 || this.body.password.length > 50) {
+      this.errors.push('A senha precisa ter entre 3 e 50 caracteres.');
+    }
+         
+       
+  }
+
   valida() {
     this.cleanUp();
 
@@ -74,8 +93,7 @@ class Login {
     }
 
     if(this.body.password !== this.body.password2) this.errors.push('Senha não confere');     
-     
-    
+       
   }
 
   cleanUp() {
