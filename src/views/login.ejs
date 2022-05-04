@@ -247,6 +247,10 @@
     position: absolute;
   }
    
+  .imagemlogo{
+    background: var(--loginInputBackgroundColor);
+    position: relative;
+    
 
 </style>
 
@@ -257,15 +261,10 @@
 
     <form action="/login/login" method="POST" class="form login">
 
-      <div class="controle">
-      <img src="/frontend/assets/img/logo.png" alt="">  
-      <div class="superior"></div>
-      </div>
+           
+      <div class="mensagem"> <%- include('includes/messages'); %> </div>
 
-      
-      <div class="mensagem">      
-      <%- include('includes/messages'); %>
-      </div>
+      <center><img class="imagemlogo" src="https://portal-novo.parademinas.mg.gov.br/docs/logo/logo3.png" alt=" Logo Prefeitura" width "300" height "90"></center>
 
       <div class="form__field">
         <label for="login__username"><svg class="icon">
