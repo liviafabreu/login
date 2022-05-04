@@ -12,11 +12,7 @@
   </head>
   
 
-  <style>
-  @use postcss-preset-env {
-    stage: 0;
-  }
-  
+  <style>   
   /* config.css */
   
   :root {
@@ -228,9 +224,16 @@
   .text--center {
     text-align: center;
   }
-  
- 
 
+
+  .imagemlogo{
+    background: var(--loginInputBackgroundColor);
+    position: relative;
+    
+        
+  }
+  
+  
 </style>
 
   
@@ -239,9 +242,13 @@
   
   <div class="grid">
 
+    
+
     <form action="/login/register" method="POST" class="form login">
 
       <div class="mensagem"> <%- include('includes/messages'); %> </div>
+
+      <center><img class="imagemlogo" src="https://portal-novo.parademinas.mg.gov.br/docs/logo/logo3.png" alt=" Logo Prefeitura" align="middle" > </center>
 
       <div class="form__field">
         <label for="login__username"><svg class="icon">
@@ -254,14 +261,14 @@
         <label for="login__username"><svg class="icon">
             <use xlink:href="#icon-user"></use>
           </svg><span class="hidden">Setor</span></label>
-        <input autocomplete="off" id="login__username" type="text" name="setor" class="form__input" placeholder="Setor" required>
+        <input autocomplete="off" id="login__setor" type="text" name="setor" class="form__input" placeholder="Setor" required>
       </div>
 
       <div class="form__field">
         <label for="login__username"><svg class="icon">
             <use xlink:href="#icon-user"></use>
           </svg><span class="hidden">Ramal/Celular</span></label>
-        <input autocomplete="off" id="login__username" type="text" name="telefone" class="form__input" placeholder="Ramal/Celular" required>
+        <input autocomplete="off" id="login__ramal" type="text" name="telefone" class="form__input" placeholder="Ramal/Celular" required>
       </div>
 
      
@@ -269,7 +276,7 @@
         <label for="login__username"><svg class="icon">
             <use xlink:href="#icon-user"></use>
           </svg><span class="hidden">email</span></label>
-        <input autocomplete="off" id="login__username" type="text" name="email" class="form__input" placeholder="email" required>
+        <input autocomplete="off" id="login__email" type="text" name="email" class="form__input" placeholder="email" required>
       </div>
 
       <div class="form__field">
@@ -284,7 +291,7 @@
         <label for="login__password"><svg class="icon">
             <use xlink:href="#icon-lock"></use>
           </svg><span class="hidden">Password</span></label>
-        <input id="login__password" type="password" name="password2" class="form__input" placeholder="Confirme sua senha" required>
+        <input id="login__password2" type="password" name="password2" class="form__input" placeholder="Confirme sua senha" required>
       </div>
 
       <div class="form__field">
@@ -296,10 +303,12 @@
     <p class="text--center">Já tem cadastro? <a href="/login/index"">Faça login</a> <svg class="icon">
         
       </svg></p>
-
+     
       
 
   </div>
+
+
 
   <svg xmlns="http://www.w3.org/2000/svg" class="icons">
     <symbol id="icon-arrow-right" viewBox="0 0 1792 1792">
